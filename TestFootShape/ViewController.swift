@@ -14,6 +14,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var scene:SCNScene! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +25,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
+        sceneView.automaticallyUpdatesLighting = true
+        
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        
         // Create a new scene
-        let scene = SCNScene()
-
+        scene = SCNScene()
+        
         // Set the scene to the view
         sceneView.scene = scene
     }
@@ -53,7 +59,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+    @IBAction func actionTap(_ sender: UITapGestureRecognizer) {
+        // 获取屏幕空间坐标并传递给 ARSCNView 实例的 hitTest 方法
+        let tapPoint = sender.location(in: sceneView)
+        let result = sceneView.hitTest(tapPoint, types: [.featurePoint])
+        
+        // 如果射线与某个平面几何体相交，就会返回该平面，以离摄像头的距离升序排序
+        // 如果命中多次，用距离最近的平面
+        if let _ = result.first {
+            let node = (SCNScene(named: "shape.scnassets/footShape.scn")?.rootNode.childNode(withName: "plane", recursively: true))!
+            node.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+//            node.physicsBody?.mass = 1
+//            node.physicsBody?.categoryBitMask = 2
+            node.position = SCNVector3Make(sceneView.pointOfView!.position.x, sceneView.pointOfView!.position.y-1.4, sceneView.pointOfView!.position.z)
+//            let footShape = FootShape(isLeft: true, withNode: sceneView.pointOfView!)
+            scene.rootNode.addChildNode(node)
+        }
+    }
 
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let anchor = anchor as? ARPlaneAnchor else {
+            return
+        }
+        
+//        let footShape = FootShape(isLeft: true, withAnchor: anchor)
+//        scene.rootNode.addChildNode(footShape)
+    }
+    
     // MARK: - ARSCNViewDelegate
     
 /*

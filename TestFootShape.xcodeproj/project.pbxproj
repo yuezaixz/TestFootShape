@@ -12,6 +12,9 @@
 		A68D82571F94DB5300EB06A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68D82551F94DB5300EB06A7 /* Main.storyboard */; };
 		A68D82591F94DB5300EB06A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D82581F94DB5300EB06A7 /* Assets.xcassets */; };
 		A68D825C1F94DB5300EB06A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68D825A1F94DB5300EB06A7 /* LaunchScreen.storyboard */; };
+		A68D82651F94E97000EB06A7 /* FootShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68D82641F94E97000EB06A7 /* FootShape.swift */; };
+		A68D82671F94FBE500EB06A7 /* footShape.scn in Resources */ = {isa = PBXBuildFile; fileRef = A68D82661F94FBE500EB06A7 /* footShape.scn */; };
+		A68D82681F94FE8F00EB06A7 /* shape.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D82631F94E16200EB06A7 /* shape.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		A68D82581F94DB5300EB06A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A68D825B1F94DB5300EB06A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A68D825D1F94DB5300EB06A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A68D82631F94E16200EB06A7 /* shape.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = shape.scnassets; sourceTree = "<group>"; };
+		A68D82641F94E97000EB06A7 /* FootShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootShape.swift; sourceTree = "<group>"; };
+		A68D82661F94FBE500EB06A7 /* footShape.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = footShape.scn; path = shape.scnassets/footShape.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,15 @@
 		A68D824E1F94DB5300EB06A7 /* TestFootShape */ = {
 			isa = PBXGroup;
 			children = (
+				A68D82631F94E16200EB06A7 /* shape.scnassets */,
 				A68D824F1F94DB5300EB06A7 /* AppDelegate.swift */,
 				A68D82531F94DB5300EB06A7 /* ViewController.swift */,
+				A68D82641F94E97000EB06A7 /* FootShape.swift */,
 				A68D82551F94DB5300EB06A7 /* Main.storyboard */,
 				A68D82581F94DB5300EB06A7 /* Assets.xcassets */,
 				A68D825A1F94DB5300EB06A7 /* LaunchScreen.storyboard */,
 				A68D825D1F94DB5300EB06A7 /* Info.plist */,
+				A68D82661F94FBE500EB06A7 /* footShape.scn */,
 			);
 			path = TestFootShape;
 			sourceTree = "<group>";
@@ -123,6 +132,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68D82681F94FE8F00EB06A7 /* shape.scnassets in Resources */,
+				A68D82671F94FBE500EB06A7 /* footShape.scn in Resources */,
 				A68D825C1F94DB5300EB06A7 /* LaunchScreen.storyboard in Resources */,
 				A68D82591F94DB5300EB06A7 /* Assets.xcassets in Resources */,
 				A68D82571F94DB5300EB06A7 /* Main.storyboard in Resources */,
@@ -136,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68D82651F94E97000EB06A7 /* FootShape.swift in Sources */,
 				A68D82541F94DB5300EB06A7 /* ViewController.swift in Sources */,
 				A68D82501F94DB5300EB06A7 /* AppDelegate.swift in Sources */,
 			);
