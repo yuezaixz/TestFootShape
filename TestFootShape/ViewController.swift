@@ -72,7 +72,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             node.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
 //            node.physicsBody?.mass = 1
 //            node.physicsBody?.categoryBitMask = 2
+            
             node.position = SCNVector3Make(sceneView.pointOfView!.position.x, sceneView.pointOfView!.position.y-1.4, sceneView.pointOfView!.position.z)
+            if let rotation = sceneView.pointOfView?.rotation {
+                node.rotation = rotation
+            }
+            
 //            let footShape = FootShape(isLeft: true, withNode: sceneView.pointOfView!)
             scene.rootNode.addChildNode(node)
         }
